@@ -1,0 +1,6 @@
+requests
+python-dotenv
+pydantic
+firecrawl-py
+prediction-market-agent-tooling[langchain]
+black

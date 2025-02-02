@@ -7,6 +7,7 @@ from langchain.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 from firecrawl.firecrawl import FirecrawlApp
 from prediction_market_agent_tooling.tools.utils import utcnow
+from langchain_core.pydantic_v1 import SecretStr
 
 from prediction_market_agent_tooling.deploy.agent import DeployableTraderAgent
 from prediction_market_agent_tooling.gtypes import Probability
@@ -68,7 +69,7 @@ def query_google_seach(q: str) -> list[str]:
 def llm(question: str, contents: list[str]) -> tuple[float, float]:
     llm = ChatOpenAI(
         model="gpt-4o-mini",
-        api_key=os.environ["OPENAI_API_KEY"],
+        api_key=SecretStr(os.environ["OPENAI_API_KEY"]),
         temperature=1,
     )
     prompt = ChatPromptTemplate(
@@ -101,7 +102,7 @@ def scrap_url_content(url: str, retry: int = 0) -> str | None:
     app = FirecrawlApp(api_key=os.environ["FIRECRAWL_API_KEY"])
     try:
         scraped = app.scrape_url(url, params={"formats": ["markdown"]})
-        return scraped["markdown"]
+        return str(scraped["markdown"])
     except Exception as e:
         if "Rate limit exceeded." in str(e) and retry < 3:
             print(

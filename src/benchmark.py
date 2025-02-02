@@ -81,9 +81,9 @@ class BenchmarkAgent(AbstractBenchmarkedAgent):
                     question=market_question,
                     # Rest of the fields are not used in this benchmark, so we can just fill them with dummy values.
                     id="id",
-                    creator="creator",
+                    creator="creator",  # type: ignore # dummy input
                     outcomes=["Yes", "No"],
-                    current_p_yes=0.5,
+                    current_p_yes=0.5,  # type: ignore # dummy input
                     collateral_token_contract_address_checksummed=WrappedxDaiContract().address,
                     market_maker_contract_address_checksummed=Web3.to_checksum_address(
                         "0xf3318C420e5e30C12786C4001D600e9EE1A7eBb1"

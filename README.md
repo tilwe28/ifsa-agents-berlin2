@@ -41,7 +41,7 @@ And fill in the API keys:
 - GRAPH_API_KEY: can be obtained for free on https://thegraph.com (Required for querying the data)
 - SERPER_API_KEY: can be obtained for free on https://serper.dev (Required for google search function)
 - FIRECRAWL_API_KEY: can be obtained for free on https://www.firecrawl.dev (Required for web scraping function)
-- OPENAI_API_KEY: I can send you one, [join this Telegram group](https://t.me/+Fb0trLKZdMw2MTQ8), or join Gnosis.io discord and channel #gnosis-ai or email me (Required for LLM calls)
+- OPENAI_API_KEY: I can send you one, [join this Telegram group](https://t.me/+Fb0trLKZdMw2MTQ8), or join [Gnosis discord](https://discord.gg/gnosis) on channel `#gnosis-ai`, or email me (Required for LLM calls)
 - BET_FROM_PRIVATE_KEY: Create wallet on Gnosis Chain, for example with [MetaMask](https://metamask.io/) and I can send you some xDai (required for doing transactions on the chain)
 - MANIFOLD_API_KEY: can be obtained for free on https://manifold.markets (Required for running benchmark)
 

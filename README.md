@@ -81,6 +81,8 @@ This is currently one of the best agents in the [leaderboard](https://presagio.p
 
 You can also play with this agent in [this Streamlit demo](https://pma-agent.ai.gnosisdev.com/?free_access_code=devcon), see what it's doing to get the final prediction.
 
+For more details, there is also [Dune dashboard](https://dune.com/gnosischain_team/omen-ai-agents) with detailed statistics. There you can filter for given time ranges, see daily stats, etc.
+
 4. Complete `YourAgent` from `src/your_agent.py` in any way you deem best.
 
 If you want to use some 3rd party and it doesn't provide trial API keys for free, ping me and let's see if I can get them for you!
@@ -109,6 +111,6 @@ With your approval to use them, yes! If your agent achieves at least 50% accurac
 
 ### How to submit
 
-Send me public key that the agent is using to place bets, we will compare agents in the leaderboard!
+Send me a public key that the agent is using to place bets (and how you want to name him); we will compare agents in the leaderboard!
 
-And open pull request against this repository with your agent `YourAgent` implementation.
+And open a pull request against this repository with your agent `YourAgent` implementation.

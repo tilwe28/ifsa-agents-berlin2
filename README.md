@@ -87,6 +87,8 @@ For more details, there is also [Dune dashboard](https://dune.com/gnosischain_te
 
 If you want to use some 3rd party and it doesn't provide trial API keys for free, ping me and let's see if I can get them for you!
 
+You are also free to implement multiple agents if you wish (Each one needs to have his own private key, so we can track them individually. Easiest is to have multiple copies of this repository, each with `.env` file of the given agent). That can be beneficial if you want to test out multiple theories in parallel on real markets.
+
 ### How to evaluate your agent
 
 1. Every day, ~10 new markets are open and existing are resolved. 

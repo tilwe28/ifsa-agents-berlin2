@@ -43,6 +43,11 @@ And fill in the API keys:
 - FIRECRAWL_API_KEY: can be obtained for free on https://www.firecrawl.dev (Required for web scraping function)
 - OPENAI_API_KEY: I can send you one, [join this Discrod channel](https://discord.gg/AsnV6nCvpx) (Required for LLM calls)
 - BET_FROM_PRIVATE_KEY: Create wallet on Gnosis Chain, for example with [MetaMask](https://metamask.io/) and I can send you some xDai (required for doing transactions on the chain)
+  - By default, MetaMask doesn't have Gnosis Chain listed. You need to click on the network selection in top left, click add a new one, and fill in:
+    - Name: Gnosis Chain
+    - RPC URL: https://rpc.gnosischain.com
+    - Chain ID: 100
+    - Symbol: XDAI  
 - MANIFOLD_API_KEY: can be obtained for free on https://manifold.markets (Required for running benchmark)
 
 ## Run

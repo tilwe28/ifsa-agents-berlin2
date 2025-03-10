@@ -1,5 +1,6 @@
 from advanced_agent import AdvancedAgent
 from basic_agent import BasicAgent
+from your_agent import YourAgent
 from prediction_market_agent_tooling.benchmark.agents import (
     AbstractBenchmarkedAgent,
 )
@@ -55,7 +56,7 @@ def main(
         agents=[
             BenchmarkAgent(agent=AdvancedAgent()),
             BenchmarkAgent(agent=BasicAgent()),
-            # BenchmarkAgent(agent=YourAgent()), # TODO: Uncomment this line after implementing YourAgent.
+            BenchmarkAgent(agent=YourAgent()), # TODO: Uncomment this line after implementing YourAgent.
         ],
         cache_path=cache_path,
         only_cached=only_cached,

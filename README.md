@@ -43,6 +43,11 @@ And fill in the API keys:
 - FIRECRAWL_API_KEY: can be obtained for free on https://www.firecrawl.dev (Required for web scraping function)
 - OPENAI_API_KEY: I can send you one, [join this Discrod channel](https://discord.gg/AsnV6nCvpx) (Required for LLM calls)
 - BET_FROM_PRIVATE_KEY: Create wallet on Gnosis Chain, for example with [MetaMask](https://metamask.io/) and I can send you some xDai (required for doing transactions on the chain)
+  - By default, MetaMask doesn't have Gnosis Chain listed. You need to click on the network selection in top left, click add a new one, and fill in:
+    - Name: Gnosis Chain
+    - RPC URL: https://rpc.gnosischain.com
+    - Chain ID: 100
+    - Symbol: XDAI  
 - MANIFOLD_API_KEY: can be obtained for free on https://manifold.markets (Required for running benchmark)
 
 ## Run
@@ -106,6 +111,8 @@ python src/benchmark.py --n 10
 (you have to add your agent into `agents` argument of `Benchmarker` class in the script)
 
 3. Sometimes, the best thing is to manually observe what's going on -- print any outputs you can and observe what the agent is doing for some question.
+
+For this, you can also use provided Streamlit demo, run it using `streamlit run src/app.py`.
 
 ### Will this be used in the end?
 

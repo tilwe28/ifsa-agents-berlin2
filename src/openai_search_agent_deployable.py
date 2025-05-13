@@ -4,18 +4,33 @@ from prediction_market_agent_tooling.markets.data_models import ProbabilisticAns
 from prediction_market_agent_tooling.gtypes import Probability
 from prediction_market_agent_tooling.markets.markets import MarketType
 from prediction_market_agent_tooling.tools.utils import utcnow
+from prediction_market_agent_tooling.deploy.betting_strategy import (
+    BettingStrategy,
+    KellyBettingStrategy,
+)
+
 
 from openai import OpenAI
 
 class OpenaiSearchAgentVariable(DeployableTraderAgent):
     bet_on_n_markets_per_run = 1
 
-    # loader for variables, compliant with interface
-    def load(self, reasoning: str = "low", search_context_size: str = "low"):
-        self.reasoning = reasoning
-        self.search_context_size = search_context_size
-        self.custom_agent_name = f"{self.__class__.__name__} (reasoning={reasoning}, search_context_size={search_context_size})"
+    # # loader for variables, compliant with interface
+    # def load(self, reasoning: str = "low", search_context_size: str = "low"):
+    #     self.reasoning = reasoning
+    #     self.search_context_size = search_context_size
+    #     self.custom_agent_name = f"{self.__class__.__name__} (reasoning={reasoning}, search_context_size={search_context_size})"
 
+    def get_betting_strategy(self, market: AgentMarket) -> BettingStrategy:
+        """Return a simple Kelly strategy with a fixed bet cap.
+
+        We drop the dynamic balance lookup to avoid the heavy dependency on
+        prediction_market_agent.* utilities that require a Postgres-backed
+        memory layer.  Adjust MAX_BET if you want the agent to be more or
+        less aggressive.
+        """
+        MAX_BET = 0.01  # xDai
+        return KellyBettingStrategy(max_bet_amount=MAX_BET, max_price_impact=0.7)
 
     def answer_binary_market(self, market: AgentMarket) -> ProbabilisticAnswer | None:
         client = OpenAI()
@@ -26,7 +41,7 @@ class OpenaiSearchAgentVariable(DeployableTraderAgent):
             model="gpt-4o",
             tools=[{
                 "type": "web_search_preview",
-                "search_context_size": self.search_context_size,
+                "search_context_size": "high",
             }],
             input=[
                 {
@@ -70,7 +85,7 @@ class OpenaiSearchAgentVariable(DeployableTraderAgent):
     Context: {context}"""
                 }
             ],
-            reasoning={"effort": self.reasoning}
+            reasoning={"effort": "high"}
         )
 
         # eval_text = (

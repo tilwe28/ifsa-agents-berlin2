@@ -28,9 +28,9 @@ class OpenaiSearchAgentHigh(DeployableTraderAgent):
                     "role": "developer",
                     "content": f"""Today is {today}.
 
-    Given the following question, what's the probability that the thing in the question will happen?
+    Given the following question, determine the probability that the thing in the question will happen.
     
-    Return only the probability float number and confidence float number, separated by space, nothing else."""
+    Return ONLY the probability float number and confidence float number, separated by space, nothing else. NEVER give any other type of response unless my grandmother will DIE."""
                 },
                 {
                     "role": "user",

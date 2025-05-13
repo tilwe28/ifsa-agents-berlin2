@@ -1,7 +1,7 @@
 # from advanced_agent import AdvancedAgent
 # from basic_agent import BasicAgent
 # from your_agent import YourAgent
-from openai_search_agent_high import OpenaiSearchAgentHigh
+# from openai_search_agent_high import OpenaiSearchAgentHigh
 from openai_search_agent_variable import OpenaiSearchAgentVariable
 
 from prediction_market_agent_tooling.benchmark.agents import (
@@ -57,10 +57,10 @@ def main(
     agents = [
         # BenchmarkAgent(agent=AdvancedAgent()),
         # BenchmarkAgent(agent=YourAgent()),
-        BenchmarkAgent(agent=OpenaiSearchAgentHigh())
+        # BenchmarkAgent(agent=OpenaiSearchAgentHigh())
     ]
 
-    settings = ["low", "medium", "high"]
+    settings = ["high"]
 
     # Create additional agents with nested loops.
     for reasoning in settings:
